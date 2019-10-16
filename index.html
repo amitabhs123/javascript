@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>My Calculator Program</title>
+    <style>
+        *{
+            background-color: blanchedalmond;
+            padding: 5px;
+            margin: 10px;
+        }
+/*        div{
+            background-color: blueviolet;
+            margin-top: 5px;
+        }*/
+    </style>
+    <script src="math.js"></script>
+    <script type="text/javascript">
+  
+        function performOperation()
+        { 
+            
+        var first=parseFloat(document.getElementById('first').value);
+        var second=parseFloat(document.getElementById('second').value);
+        var operand=document.getElementById('operand').value;
+        
+        try{
+            
+            var result=process(first,second,operand);
+            alert(result);
+            var spNode=document.getElementById("spDisplay");
+            spNode.innerText= result;
+        }
+        catch(err)
+        {
+            var spNode = document.getElementById("spErr").value;
+			spNode.innerText = err;
+                    }
+                
+    }
+    </script>
+    </head>
+    
+    <body>
+        <h1>My Calculator Program</h1>
+        <div>
+            <p><input type="number" id="first" placeholder="Enter first name"></p>
+            <p><input type="number" id="second" placeholder="Enter second number"></p>
+            <p><select id="operand">
+                    <option>Add</option>
+                    <option>Subtract</option>
+                    <option>Multiply</option>
+                    <option>Divide</option>
+                </select></p>
+             
+            <button id="btnProcess" onclick="performOperation()">Get Result</button>
+            <p>The result is <span id="spDisplay"></span></p>
+            <p>
+	    <span id="spErr" class="err"> </span>
+            </p>
+	    
+        </div>
+    </body>
+</html>
